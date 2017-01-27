@@ -1,0 +1,418 @@
+// available variables to change the brand colours as required
+// masterhead.scss
+
+//$head-background: #ffffff;
+
+
+// mainMenu.scss -- responsive icons color
+//$menu-link-color:#337ab7;
+
+
+//base.scss
+
+//$base-background-color:#fff;
+//$base-font-size:16px ;
+//$base-font-color:#333 ;
+//$base-link-color:#133E8D ;
+//$base-container-width:1500px ;
+$btn-background-color:#38A9DB ;
+$font-primary: Arial ; // main font
+$font-secondary:"Open Sans",Helvetica, Arial, sans-serif;
+
+
+// global used on all partials to get a uniform spacing between elements
+//$base-margin-bottom:1.875em ;
+
+//headerTop
+//$search-link-background:#F3F3F4 ;
+//$search-link:#333 ;
+
+// mainNav.scss
+$main-nav-background:#122359 ;
+//$main-nav-link:#fff ;
+
+//footer.scss
+//$footer-font-color:#fff ;
+//$footer-nav-selected-link:#133E8D ;
+
+// sectionSubsite.scss - socialamedia.scss
+//$section-Background:#efefef ;
+
+//  socialamedia.scss
+//$social-link-color:#337ab7 ;
+
+//  sideNavigation.scss
+//$side-nav-active-background:#133E8D ;
+
+//  carousel.scss
+//$carousel-active-background:#000 ;
+//$carousel-indicators-active-background:#ccc ;
+//$carousel-caption-background: rgba(0,0,0,0.6) ;
+//$carousel-caption-font-color:#fff ;
+
+
+// blocklinks.scss
+
+//$block-link-back:#f6f6f6 ;
+//$block-link-back-hover:#3380A4 ;
+//$promo-group-border:1px solid #fff ; 
+//$promo-group-background:#EDF2F5 ; 
+//$promo-group-li-background:#EDF2F5 ;
+//$promo-group-link-color:#216486 ;
+
+
+//promolist webpart
+//$link-font-color:#fff;
+//$span-info-color:#133E8D;
+//$span-info-hover:#131A22;
+//$span-info-secondary-color:#fff;
+//$span-arrow-base:darken($span-info-color, 10%);
+//$span-third-info-base:#f6f6f6;
+//$third-info-font-color:#333;
+//$arrow-color:#fff;
+//$contentFontColor:#333;
+//$content-arrow-color:#133E8D;
+//$content-border-color:#ddd;
+
+// section backgrounds
+$sectionHeader-background-color:#fff ;
+$sectionOne-background-color:#fff ;
+$sectionTwo-background-color:#f6f6f6 ;
+$sectionThree-background-color:#fff;
+$sectionFour-background-color:#f6f6f6 ;
+$sectionFive-background-color:#fff ;
+
+//iconlinks
+//$iconLinkIconColor:#FFC82E;
+
+//heroBanner
+//$heroFontBackground:rgba(0, 0, 0, 0.5); 
+//$heroFontcolor:#fff; 
+
+//news
+//$news-button-background: #3498DB ;
+$news-pod-back:#ffffff ;
+$news-pod-border-color:#ddd;
+
+//accordion
+$accordion-color:green;
+//$accordion-border-color:#ECF0F1;
+
+@import 'mixins';
+@import 'variables';
+@import 'brandColors';
+
+// available sass files please un-comment out as required
+
+//@import 'mainMenuSubsites';
+@import 'breadcrumb';
+@import 'sectionSubsite';
+@import 'promo';
+@import 'carousel';
+//@import 'socialMedia';
+@import 'sideNavigation';
+//@import 'blockLinks';
+@import 'accordion';
+@import 'promoGroup';
+@import 'alerts';
+@import 'promoListwebpart';
+//@import 'eventsWebparts';
+@import 'sharepointOverides';
+@import 'iconLinks';
+@import 'heroBanner';
+@import 'news';
+@import 'polaroids';
+@import 'groupPromo';
+@import 'blocklinks';
+@import 'contentLink';
+@import 'docList';
+
+
+.masterhead{
+    border-bottom:1px solid #ddd;
+}
+
+
+.header-nav-container{
+    border-bottom:8px solid #38A9DB;
+}
+
+
+h1, h2, h3, h4, h5 {
+    font-family:$font-secondary;
+      margin:0.8em 0 0.4em 0;
+}
+
+p{
+    line-height:1.6em;
+}
+
+
+   .btn{
+        font-size:18px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+         border-radius: 3px;
+         background:#38A9DB;
+         box-shadow: none;
+          
+          &:hover {
+              background:#333 !important;
+              border-color:#333  !important;
+          }
+
+          &:after,  {
+    padding: 1px 26px !important;
+}
+    }
+
+//header
+.logo {
+    background: url(../images/logo.png) center left no-repeat;
+    width: 100%;
+    height:100px;
+    margin:40px 0;
+
+    &:hover, &:focus, &:visited {
+        text-decoration:none;
+        color:#fff;
+    }
+    
+}
+
+
+.jumboBanner {
+    color:#fff;
+    position:relative;
+    font-family: "Open Sans",Helvetica, Arial, sans-serif;
+    background:#37A9DB;
+
+     .listWebpart {
+margin:0px;
+
+
+ h2 {
+    color:#fff;
+    padding:6% 40% 6% 1%;
+    font-weight:300;
+    font-size:2.2em;
+    line-height:1.5em;
+
+}
+ ul{
+     padding:0px;
+ }
+
+li {
+
+    float:left;
+    width:33.3%;
+    padding:0 15px;
+    display:table;
+
+    a  {
+    padding:0 30px 0 30px;
+    background:#2497C8;
+    border:none;
+    color:#fff;
+    font-size:1.2em;
+    text-align:center;
+    height:120px;
+    vertical-align:middle;
+    display:table-cell;
+    font-weight:300;
+ }
+
+}
+
+.freeContentArea {
+     position:absolute;
+     bottom:0px;
+     right:1%;
+     background:#4BB2DF;
+     float:left;
+     width:31%;
+     margin:0 1%;
+     padding:50px 30px 30px 30px;
+     z-index:1;
+     font-size:1.5em;
+     text-align:center;
+
+
+     p {
+      font-weight:300;
+      line-height:1.2em;
+      margin:0px;
+      color:#fff;
+
+
+      strong {
+            font-weight:bolder;
+            color:#122259;
+            }
+
+
+    }
+
+    img{
+        padding-bottom:50px;
+    }
+
+
+     
+@media only screen and (max-width: 800px) {
+
+
+    
+     right:auto;
+     width:100%;
+     margin:0;
+     padding:0px 30px 30px 30px;
+     background:none;
+     position:relative;
+
+      img{
+        padding-bottom:30px;
+    }
+
+}
+
+
+    }
+
+}
+}
+
+
+@media only screen and (max-width: 800px) {
+
+
+   .jumboBanner {
+       
+
+  padding-bottom:15px;
+
+       .listWebpart  {
+   
+
+     h2 {
+    font-size:1.5em;     
+    padding:30px;
+    text-align:center;
+}
+
+
+li {
+
+    width:100%;
+    margin:0;
+    height:auto;
+    padding:15px 30px;
+}
+
+
+    }
+   }
+
+
+}
+
+.contentLink {
+
+    ul li {
+
+   margin:0 0 30px 0;
+
+    div {
+
+      height:100%;
+
+        h2 {
+         font-weight:normal;
+         margin-top:0px;
+    }
+
+     p{
+         font-size:18px;
+         strong{
+             font-size:25px;
+         }
+     }
+    }
+
+
+    &.green {
+        div {
+            background:#95BE0C;
+
+               h2, h3, p {
+        color:#fff;
+        }
+
+        .btn{
+  
+         background:darken(#95be0c,10%);
+         border-color:darken(#95be0c,10%);
+        }
+
+        }  
+    }
+
+        &.blue {
+        div {
+            background:#37A9DB;
+
+               h2, h3, p strong {
+        color:#fff;
+        }
+
+        p {
+        color:#000;
+        }
+        }
+
+        
+    }
+}
+
+&.promotion ul li div {
+ padding:0px;
+ background:transparent;
+}
+}
+
+
+.sideNav {
+    background:transparent;
+    margin-bottom:30px;
+    border-top: 1px solid #D8DDDF;
+    padding:0px;
+
+    ul{
+        margin:0px;
+    }
+
+   li{
+        margin:0px;
+
+           a{
+            padding: 20px;
+            border-bottom: 1px solid #D8DDDF;
+            margin: 0;
+            text-decoration:none;
+
+
+             &.active{
+                background:#38A9DB;
+                color:#fff;
+                box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.21);
+             }
+    }
+    }
+
+ 
+}
+
+
+
+
