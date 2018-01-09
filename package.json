@@ -22,19 +22,25 @@
     "gulp-cli": "^1.2.2",
     "gulp-foreach": "^0.1.0",
     "gulp-livereload": "^3.8.1",
+    "gulp-mincer": "0.0.2",
     "gulp-nodemon": "^2.1.0",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
-    "lcc_frontend_toolkit": "^0.76.0",
-    "lcc_templates_nunjucks": "1.1.45",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gutil": "^1.6.4",
+    "lcc_frontend_toolkit": "^0.209.0",
+    "lcc_templates_nunjucks": "1.1.103",
+    "mincer": "^1.5.1",
     "minimist": "0.0.8",
     "portscanner": "^1.0.0",
     "prompt": "^0.2.14",
     "readdir": "0.0.6",
     "rmdir": "^1.2.0",
     "serve-favicon": "2.3.0",
-    "syncy": "^2.0.1"
+    "syncy": "^2.0.1",
+    "uglify": "^0.1.5"
   }
 }

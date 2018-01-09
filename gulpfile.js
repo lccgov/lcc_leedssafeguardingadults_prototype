@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var syncy = require('syncy');
 var sass = require('gulp-sass');
 var notify = require('gulp-notify');
+var gutil = require('gulp-util');
+var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var nodemon = require('gulp-nodemon');
 var rmdir = require('rmdir');
@@ -9,6 +11,10 @@ var path = require('path');
 var util = require('util');
 var foreach = require('gulp-foreach');
 var rename = require('gulp-rename');
+var Mincer = require("mincer")
+var mince = require("gulp-mincer")
+var env = new Mincer.Environment();
+env.appendPath('app/assets/javascripts');
 
 //Clean lcc_modules
 gulp.task('clean:lcc_modules', (done) => {
@@ -19,7 +25,7 @@ gulp.task('clean:lcc_modules', (done) => {
 
 //Sync assets to public folder excluding SASS files
 gulp.task('sync:assets', (done) => {
-    syncy(['app/assets/**/*', '!app/assets/sass/**', '!app/assets/*_subsite/**'], 'public', {
+    syncy(['app/assets/**/*', '!app/assets/sass/**','!app/assets/javascripts/**', '!app/assets/*_subsite/**'], 'public', {
             ignoreInDest: '**/stylesheets/**',
             base: 'app/assets',
             updateAndDelete: true
@@ -28,8 +34,27 @@ gulp.task('sync:assets', (done) => {
     }).catch((err) => { done(err);})
 });
 
+//Sync app/assets/javascripts/application.js to dist/_catalogs/masterpages/public/javascripts
+//Use mince to add required js files
+gulp.task('sync:javascripts', ['sync:assets'], (done) => {
+
+    function createErrorHandler(name) {
+        return function (err) {
+        console.error('Error from ' + name + ' in compress task', err.toString());
+        };
+    }
+
+    return gulp.src('app/assets/javascripts/application.js')
+        .pipe(mince(env))
+        .on('error', createErrorHandler('mince'))
+        //don't uglify if gulp is ran with '--debug'
+       // .pipe(gutil.env.debug ? gutil.noop() : uglify())
+        .on('error', createErrorHandler('uglify'))
+        .pipe(gulp.dest('public/javascripts'));
+});
+
 //Sync lcc_frontend_toolkit to lcc_modules to be used for SASS partial compilation
-gulp.task('sync:lcc_frontend_toolkit', ['sync:assets'], (done) => {
+gulp.task('sync:lcc_frontend_toolkit', ['sync:javascripts'], (done) => {
     syncy(['node_modules/lcc_frontend_toolkit/**'], 'lcc_modules/lcc_frontend_toolkit', {
             base: 'node_modules/lcc_frontend_toolkit',
             updateAndDelete: true
@@ -106,5 +131,5 @@ gulp.task('nodemon', ['watch'], function () {
     })
 });
  
-gulp.task('generate-assets',  ['clean:lcc_modules', 'sync:assets', 'sync:lcc_frontend_toolkit', 'sync:lcc_templates_nunjucks', 'sass', 'subsites:sass', 'subsites:assets']);
+gulp.task('generate-assets',  ['clean:lcc_modules', 'sync:assets', 'sync:javascripts', 'sync:lcc_frontend_toolkit', 'sync:lcc_templates_nunjucks', 'sass', 'subsites:sass', 'subsites:assets']);
 gulp.task('default', ['generate-assets', 'watch', 'nodemon']);

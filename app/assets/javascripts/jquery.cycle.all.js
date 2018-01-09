@@ -1,19 +1,11 @@
 /*!
-
  * jQuery Cycle Plugin (with Transition Definitions)
-
  * Examples and documentation at: http://jquery.malsup.com/cycle/
-
  * Copyright (c) 2007-2010 M. Alsup
-
  * Version: 2.9997 (13-OCT-2011)
-
  * Dual licensed under the MIT and GPL licenses.
-
  * http://jquery.malsup.com/license.html
-
  * Requires: jQuery v1.3.2 or later
-
  */
 ;(function($) {
 
@@ -1508,10 +1500,5 @@ $.fn.cycle.transitions.wipe = function($cont, $slides, opts) {
 	opts.animOut   = { left: 0 };
 };
 
-})(jQuery);//(=) require jquery.cycle.all
+})(jQuery);
 
-$('.cycle ul').cycle({ 
-    fx:      'scrollDown', 
-    speed:    3000, 
-    timeout:  2000 
-});
